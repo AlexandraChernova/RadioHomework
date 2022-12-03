@@ -18,6 +18,57 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldNotSetNumberOfMaxStation() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(10);
+
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldNotSetNegativeStation() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(-1);
+
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetNegativeVolume() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(-1);
+
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetVolumeAboveHundred() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(101);
+
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
 
     public void shouldNotTurnOnStationTen() {
         Radio radio = new Radio();
